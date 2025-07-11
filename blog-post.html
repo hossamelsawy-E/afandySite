@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - AFANDY TRAVEL</title>
+    <meta name="description" content="Read the latest visa and immigration news from AFANDY TRAVEL.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/blog-post.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/images/afandy-logo.png">
+</head>
+<body class="scrollbar-right">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="public/images/afandy-logo.png" alt="AFANDY TRAVEL" class="logo-img">
+                    <span class="logo-text" data-translate="footer.company">AFANDY TRAVEL</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <a href="index.html" class="nav-link" data-translate="nav.home">Home</a>
+                    <a href="index.html#services" class="nav-link" data-translate="nav.services">Services</a>
+                    <a href="index.html#process" class="nav-link" data-translate="nav.process">Process</a>
+                    <a href="index.html#contact" class="nav-link" data-translate="nav.contact">Contact</a>
+                    <a href="blog.html" class="nav-link" data-translate="nav.blog">Blog</a>
+                </nav>
+
+                <!-- Controls -->
+                <div class="header-controls">
+                    <a class="language-toggle" onclick="toggleLanguage()">
+                        <span class="globe-icon">🌍</span>
+                        <span id="language-text">العربية</span>
+                    </a>
+                    <a class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <span class="hamburger"></span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="nav-mobile" id="mobile-nav">
+                <a href="index.html" class="nav-link-mobile" data-translate="nav.home">Home</a>
+                <a href="index.html#services" class="nav-link-mobile" data-translate="nav.services">Services</a>
+                <a href="index.html#process" class="nav-link-mobile" data-translate="nav.process">Process</a>
+                <a href="index.html#contact" class="nav-link-mobile" data-translate="nav.contact">Contact</a>
+                <a href="blog.html" class="nav-link-mobile" data-translate="nav.blog">Blog</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="blog-post-main">
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-state">
+            <div class="loading-spinner"></div>
+        </div>
+
+        <!-- Post Not Found -->
+        <div id="post-not-found" class="post-not-found" style="display: none;">
+            <div class="container">
+                <div class="not-found-content">
+                    <h1>Post Not Found</h1>
+                    <p>The blog post you're looking for doesn't exist.</p>
+                    <a href="blog.html" class="btn btn-primary">Back to Blog</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Post Content -->
+        <div id="blog-post-content" style="display: none;">
+            <!-- Hero Section -->
+            <section class="post-hero">
+                <div class="container">
+                    <div class="post-hero-content">
+                        <!-- Back Button -->
+                        <a href="blog.html" class="back-btn">
+                            <span class="back-arrow">←</span>
+                            <span>Back to Blog</span>
+                        </a>
+
+                        <!-- Category Badge -->
+                        <div class="post-category-container">
+                            <span class="post-category" id="post-category">Category</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h1 class="post-title" id="post-title">Blog Post Title</h1>
+
+                        <!-- Meta Information -->
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <img src="/placeholder.svg" alt="" class="author-image" id="author-image">
+                                <span class="author-name" id="author-name">Author Name</span>
+                            </div>
+                            <div class="post-date">
+                                <span class="date-icon">📅</span>
+                                <span id="post-date">Date</span>
+                            </div>
+                            <div class="post-read-time">
+                                <span class="time-icon">⏱️</span>
+                                <span id="post-read-time">5 min</span>
+                            </div>
+                        </div>
+
+                        <!-- Featured Image -->
+                        <div class="post-featured-image">
+                            <img src="/placeholder.svg" alt="" id="featured-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section class="post-content-section">
+                <div class="container">
+                    <div class="post-layout">
+                        <!-- Main Content -->
+                        <div class="post-main-content">
+                            <article class="post-content" id="post-content">
+                                <!-- Content will be dynamically inserted here -->
+                            </article>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <aside class="post-sidebar">
+                            <!-- Share Section -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Share Article</h3>
+                                <div class="share-buttons">
+                                    <button class="share-btn facebook" onclick="shareOnFacebook()">
+                                        <span class="share-icon">📘</span>
+                                        <span>Facebook</span>
+                                    </button>
+                                    <button class="share-btn twitter" onclick="shareOnTwitter()">
+                                        <span class="share-icon">🐦</span>
+                                        <span>Twitter</span>
+                                    </button>
+                                    <button class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                                        <span class="share-icon">💼</span>
+                                        <span>LinkedIn</span>
+                                    </button>
+                                    <button class="share-btn copy" onclick="copyLink()">
+                                        <span class="share-icon">🔗</span>
+                                        <span>Copy Link</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Tags Section -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Tags</h3>
+                                <div class="post-tags" id="post-tags">
+                                    <!-- Tags will be dynamically inserted here -->
+                                </div>
+                            </div>
+
+                            <!-- Related Posts -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Related Posts</h3>
+                                <div class="related-posts" id="related-posts">
+                                    <!-- Related posts will be dynamically inserted here -->
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-main">
+                    <div class="footer-logo">
+                        <img src="public/images/afandy-hero-logo.png" alt="AFANDY TRAVEL" class="footer-logo-img">
+                        <span class="footer-logo-text" data-translate="footer.company">AFANDY TRAVEL</span>
+                    </div>
+                    <p class="footer-description" data-translate="footer.description">Your trusted partner for visa and immigration services worldwide with authentic Middle Eastern hospitality.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook">📘</a>
+                        <a href="#" class="social-link twitter">🐦</a>
+                        <a href="#" class="social-link instagram">📷</a>
+                        <a href="#" class="social-link linkedin">💼</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title" data-translate="footer.contact">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <span>info@afandytravel.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <span>+971 4 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>Dubai, United Arab Emirates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html#services" class="footer-link" data-translate="nav.services">Services</a>
+                        <a href="index.html#process" class="footer-link" data-translate="nav.process">Process</a>
+                        <a href="index.html#contact" class="footer-link" data-translate="nav.contact">Contact</a>
+                        <a href="blog.html" class="footer-link" data-translate="nav.blog">Blog</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 <span data-translate="footer.company">AFANDY TRAVEL</span>. <span data-translate="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat -->
+    <div class="floating-chat" id="floating-chat">
+        <div class="chat-options" id="chat-options">
+            <a href="https://wa.me/971412345678" target="_blank" class="chat-option whatsapp">
+                <span class="chat-icon">💬</span>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://t.me/afandytravel" target="_blank" class="chat-option telegram">
+                <span class="chat-icon">✈️</span>
+                <span>Telegram</span>
+            </a>
+        </div>
+        <button class="chat-toggle" onclick="toggleChat()">
+            <span class="chat-toggle-icon">💬</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/blog-data.js"></script>
+    <script src="js/blog-post.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>     -->
+</body>
+</html>

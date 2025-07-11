@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFANDY TRAVEL - Your Gateway to Global Opportunities</title>
+    <meta name="description" content="Professional visa and immigration services with 15+ years of experience. We make your travel dreams come true.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/images/afandy-hero-logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body class="scrollbar-right">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="public/images/afandy-hero-logo.png" alt="OPEN VISA WAY" class="logo-image">
+                <div class="rotating-ring"></div>
+                <div class="pulsing-ring"></div>
+            </div>
+            
+            <h1 class="loading-title">OPEN VISA WAY</h1>
+            <p class="loading-tagline">navigate your future abroad</p>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">0%</div>
+            </div>
+            
+            <p class="loading-step" id="loading-step">Initializing your journey...</p>
+            
+            <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        
+        <div class="loading-footer">
+            <p>Professional Visa & Immigration Services</p>
+        </div>
+        
+        <!-- Background Elements -->
+        <div class="loading-bg-elements">
+            <div class="floating-plane plane-1">✈️</div>
+            <div class="floating-plane plane-2">🌍</div>
+            <div class="floating-plane plane-3">📍</div>
+            <div class="floating-plane plane-4">✈️</div>
+            <div class="animated-circle circle-1"></div>
+            <div class="animated-circle circle-2"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
+    </div>
+
+    <!-- Main Website -->
+    <div id="main-website" class="main-website hidden">
+        <!-- Header -->
+        <header  id="header" class="fixed top-0 w-full z-50 bg-transparent text-white transition-all ">
+            <div class="container">
+                <div class="header-content">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <img src="public/images/afandy-logo.png" alt="Open Visa way" class="logo-img">
+                        <span class="logo-text" data-translate="footer.company">AFANDY TRAVEL</span>
+                    </div>
+
+                    <!-- Desktop Navigation  & removed nav-link -->
+                    <nav class="nav-desktop">
+                        <a class="nav-link"  onclick="scrollToSection('hero')" data-translate="nav.home">Home</a>
+                        <a class="nav-link"  onclick="scrollToSection('services')" data-translate="nav.services">Services</a>
+                        <a class="nav-link"  onclick="scrollToSection('process')" data-translate="nav.process">Process</a>
+                        <a class="nav-link"  onclick="scrollToSection('contact')" data-translate="nav.contact">Contact</a>
+                        <a class="nav-link"  onclick="window.location.href='blog.html'" data-translate="nav.blog">Blog</a>
+                    </nav>
+
+                    <!-- Controls -->
+                    <div class="header-controls">
+                        <a class="language-toggle" onclick="toggleLanguage()" id="flip-btn">
+                            <span class="globe-icon">🌍</span>
+                            <span id="language-text">العربية</span>
+                        </a>
+                        <a class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                            <span class="hamburger"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <div class="nav-mobile" id="mobile-nav">
+                    <a class="nav-link-mobile" onclick="scrollToSection('hero')" data-translate="nav.home">Home</a>
+                    <a class="nav-link-mobile" onclick="scrollToSection('services')" data-translate="nav.services">Services</a>
+                    <a class="nav-link-mobile" onclick="scrollToSection('process')" data-translate="nav.process">Process</a>
+                    <a class="nav-link-mobile" onclick="scrollToSection('contact')" data-translate="nav.contact">Contact</a>
+                    <a class="nav-link-mobile" onclick="window.location.href='blog.html'" data-translate="nav.blog">Blog</a>
+                </div>
+            </div>
+        </header>
+  
+    <!-- Hero Section -->
+        <section class="hero">
+            <!-- Background Slider -->
+            <div class="hero-slider">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+            </div>
+            
+            <!-- Dark Overlay -->
+            <div class="overlay"></div>
+            
+            <!-- Hero Content -->
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="hero.title">From passport to plane </h1>
+                <span class="hero-title" data-translate="hero.title2">we have got you</span>
+                <p class="hero-subtitle" data-translate="hero.subtitle">Professional visa and immigration services with 15+ years of experience. We make your travel dreams come true</p>
+                <!-- <button class="explore-btn">
+                    <span data-translate="hero.cta">Explore Town</span>
+                </button> -->
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                        <span data-translate="hero.cta">Start  Journey</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Slider Navigation Dots -->
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <!-- <section id="hero" class="hero">
+            <div class="hero-bg">
+                <div class="hero-overlay"></div>
+                <img src="https://unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Travel destinations" class="hero-bg-img">
+            </div>
+            <div class="hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="hero-slideshow">
+                    <img src="public/images/hero-travel-planning.jpg" alt="Travel planning with vintage map and camera" class="hero-bg-img active">
+                    <img src="public/images/hero-airplane-view.jpg" alt="Airplane window view at sunset" class="hero-bg-img " >
+                    <img src="public/images/hero-adventure.jpg" alt="Adventure traveler on mountain rocks" class="hero-bg-img ">
+                    <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Travel destinations" class="hero-bg-img">
+                </div>
+            </div>
+          Animated Background Elements 
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div> -->
+                <!-- <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div> -->
+            <!-- </div>
+
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="public/images/afandy-hero-logo.png" alt="AFANDY TRAVEL" class="hero-logo-img">
+                </div>
+
+                <h1 class="hero-title" data-translate="hero.title">Your Gateway to Global Opportunities</h1>
+                <p class="hero-subtitle" data-translate="hero.subtitle">Professional visa and immigration services with 15+ years of experience. We make your travel dreams come true.</p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                        <span data-translate="hero.cta">Start  Journey</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                        <span class="btn-icon">📞</span>
+                        <span data-translate="hero.consultation">Free Consultation</span>
+                    </button>
+                </div>
+            </div>
+
+             Scroll Indicator 
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </section> -->
+        <!-- hero section v2 -->
+        <!-- <section id="hero" class="hero-modern">
+            <div class="hero-bg-modern">
+                <img src="public/images/hero_section_image2.jpg" alt="Adventure traveler on mountain rocks" class="hero-bg-img-modern" id="flip-image">
+                <div class="hero-overlay-modern"></div>
+            </div>
+
+            <div class="hero-content-modern">
+                <div class="hero-main-content">
+                    <h1 class="hero-title-modern" data-translate="hero.title">
+                        From passport to plane
+                    </h1>
+                    <h2 class="hero-title-modern" data-translate="hero.title2">
+                        we have got you 
+                    </h2>
+                    
+                    <div class="hero-buttons-modern">
+                        <button class="btn-modern btn-hero-primary" onclick="scrollToSection('contact')">
+                            <span data-translate="hero.cta">Join With Us</span>
+                            <div class="btn-icon-modern">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+               
+                <div class="hero-info-card">
+                    <div class="info-card-content">
+                        <p class="info-card-text" data-translate="hero.subtitle">
+                            Explore our curated list of must-visit destinations around the globe with professional visa services.
+                        </p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section> -->
+        
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="services.title">Our Services</h2>
+                    <p class="section-subtitle" data-translate="services.subtitle">Comprehensive visa and immigration solutions tailored to your needs</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" data-animate="scale-in">
+                        <div class="service-icon">
+                            <span class="icon">✈️</span>
+                        </div>
+                        <h3 class="service-title" data-translate="services.tourist">Tourist Visas</h3>
+                        <p class="service-description" data-translate="services.tourist.desc">Explore the world with our tourist visa services for all major destinations.</p>
+                    </div>
+
+                    <div class="service-card" data-animate="scale-in" data-delay="150">
+                        <div class="service-icon">
+                            <span class="icon">🎓</span>
+                        </div>
+                        <h3 class="service-title" data-translate="services.study">Study Visas</h3>
+                        <p class="service-description" data-translate="services.study.desc">Pursue your education abroad with our comprehensive study visa assistance.</p>
+                    </div>
+
+                    <div class="service-card" data-animate="scale-in" data-delay="300">
+                        <div class="service-icon">
+                            <span class="icon">🏠</span>
+                        </div>
+                        <h3 class="service-title" data-translate="services.immigration">Immigration</h3>
+                        <p class="service-description" data-translate="services.immigration.desc">Permanent residency and citizenship services for your new life abroad.</p>
+                    </div>
+
+                    <div class="service-card" data-animate="scale-in" data-delay="450">
+                        <div class="service-icon">
+                            <span class="icon">💼</span>
+                        </div>
+                        <h3 class="service-title" data-translate="services.work">Work Abroad</h3>
+                        <p class="service-description" data-translate="services.work.desc">Professional work visa services to advance your career internationally.</p>
+                    </div>
+
+                    <div class="service-card" data-animate="scale-in" data-delay="600">
+                        <div class="service-icon">
+                            <span class="icon">💬</span>
+                        </div>
+                        <h3 class="service-title" data-translate="services.consultation">Consultations</h3>
+                        <p class="service-description" data-translate="services.consultation.desc">Expert advice and personalized consultation for all your visa needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us  -->
+        <section class="travel-section">
+            <!-- <div class="container"> -->
+                <div class="travel-content">
+                    <h1>eCowie To Touann</h1>
+                    <p>We are world reputed travel agency</p>
+                    <p>There are many variations of passages of available but the majority have suffered alteration in some form, by injected hum randomised words.</p>
+                    <p>Leisarned temper incidental at labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, ullo auto inter dolor is omnismerdunt. Snipplum velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                    
+                    <h2>Exclusive Trip</h2>
+                    <ul>
+                        <li>There are many variations of passages of available but the majority.</li>
+                        <li>Safety First Always</li>
+                        <li>There are many variations of passages of available but the majority.</li>
+                    </ul>
+                    
+                    <h2>Professional Guide</h2>
+                    <ul>
+                        <li>There are many variations of passages of available but the majority.</li>
+                    </ul>
+                    
+                    <a href="#contact" class="contact-btn">Contact With Us →</a>
+                </div>
+                
+                <div class="travel-images">
+                    <div class="floating-image image-1">
+                        <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Travel destination" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="floating-image image-2">
+                        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Travel destination" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="floating-image image-3">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Travel destination" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="process.title">Simple 4-Step Process</h2>
+                    <p class="section-subtitle" data-translate="process.subtitle">We make visa applications easy and stress-free</p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-step" data-animate="slide-in-up">
+                        <div class="step-icon">
+                            <span class="icon">📄</span>
+                            <div class="step-number">01</div>
+                        </div>
+                        <h3 class="step-title" data-translate="process.step1">Submit Request</h3>
+                        <p class="step-description" data-translate="process.step1.desc">Fill out our simple online form with your travel requirements</p>
+                    </div>
+
+                    <div class="process-step" data-animate="slide-in-up" data-delay="200">
+                        <div class="step-icon">
+                            <span class="icon">📤</span>
+                            <div class="step-number">02</div>
+                        </div>
+                        <h3 class="step-title" data-translate="process.step2">Upload Documents</h3>
+                        <p class="step-description" data-translate="process.step2.desc">Securely upload all required documents through our platform</p>
+                    </div>
+
+                    <div class="process-step" data-animate="slide-in-up" data-delay="400">
+                        <div class="step-icon">
+                            <span class="icon">💳</span>
+                            <div class="step-number">03</div>
+                        </div>
+                        <h3 class="step-title" data-translate="process.step3">Payment</h3>
+                        <p class="step-description" data-translate="process.step3.desc">Complete payment through our secure payment gateway</p>
+                    </div>
+
+                    <div class="process-step" data-animate="slide-in-up" data-delay="600">
+                        <div class="step-icon">
+                            <span class="icon">🚚</span>
+                            <div class="step-number">04</div>
+                        </div>
+                        <h3 class="step-title" data-translate="process.step4">Delivery</h3>
+                        <p class="step-description" data-translate="process.step4.desc">Receive your processed visa documents at your doorstep</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="contact.title">Get Started Today</h2>
+                    <p class="section-subtitle" data-translate="contact.subtitle">Contact us for a free consultation and let us help you with your visa needs</p>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" data-translate="contact.name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country" data-translate="contact.country">Country</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone" data-translate="contact.phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="whatsapp" data-translate="contact.whatsapp">WhatsApp (Optional)</label>
+                                <input type="tel" id="whatsapp" name="whatsapp">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="passport" data-translate="contact.passport">Upload Passport Copy</label>
+                            <div class="file-upload">
+                                <input type="file" id="passport" name="passport" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="file-upload-text">
+                                    <span class="upload-icon">📤</span>
+                                    <span>Click to upload or drag and drop</span>
+                                    <small>PDF, JPG, PNG up to 10MB</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-translate="contact.message">Message</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your travel plans and visa requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span data-translate="contact.submit">Submit Application</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="testimonials.title">What Our Clients Say</h2>
+                    <p class="section-subtitle" data-translate="testimonials.subtitle">Trusted by thousands of satisfied customers worldwide</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card" data-animate="rotate-in">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Excellent and fast service. Got my Canada visa in record time. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://public/images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Ahmed Mohammed" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Ahmed Mohammed</h4>
+                                <p class="author-country">UAE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-animate="rotate-in" data-delay="200">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Very professional and helpful team. They helped me get my UK study visa."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face" alt="Fatima Ali" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Fatima Ali</h4>
+                                <p class="author-country">Saudi Arabia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" data-animate="rotate-in" data-delay="400">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Best visa agency I have dealt with. Excellent customer service and continuous follow-up."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Khalid Hassan" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Khalid Hassan</h4>
+                                <p class="author-country">Qatar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Preview Section -->
+        <section id="blog" class="blog-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-translate="blog.title">Latest News & Updates</h2>
+                    <p class="section-subtitle" data-translate="blog.subtitle">Stay informed with the latest visa requirements and travel updates</p>
+                    <a href="blog.html" class="btn btn-outline mt-3 mb-2">
+                        <span>View All Articles</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
+                </div>
+
+                <div class="blog-grid mt-3">
+                    <article class="blog-card" data-animate="fade-in-up">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&h=250&fit=crop" alt="Canada Visa">
+                            <div class="blog-category">Visa News</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">📅 December 15, 2024</span>
+                            </div>
+                            <h3 class="blog-title">New Canada Visa Requirements 2024</h3>
+                            <p class="blog-excerpt">Learn about the latest changes in Canadian visa requirements and how to apply successfully.</p>
+                            <a href="blog-post.html?id=1" class="blog-link">
+                                <span data-translate="blog.readmore">Read More</span>
+                                <span class="btn-arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-animate="fade-in-up" data-delay="150">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop" alt="UK Study">
+                            <div class="blog-category">Education</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">📅 December 10, 2024</span>
+                            </div>
+                            <h3 class="blog-title">Complete Guide to Studying in the UK</h3>
+                            <p class="blog-excerpt">Everything you need to know about applying to UK universities and getting a student visa.</p>
+                            <a href="blog-post.html?id=2" class="blog-link">
+                                <span data-translate="blog.readmore">Read More</span>
+                                <span class="btn-arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-animate="fade-in-up" data-delay="300">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop" alt="Australia Work">
+                            <div class="blog-category">Work</div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">📅 December 5, 2024</span>
+                            </div>
+                            <h3 class="blog-title">Work Opportunities in Australia for Arab Professionals</h3>
+                            <p class="blog-excerpt">Discover the best career opportunities in Australia and how to get a work visa.</p>
+                            <a href="blog-post.html?id=3" class="blog-link">
+                                <span data-translate="blog.readmore">Read More</span>
+                                <span class="btn-arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section footer-main">
+                        <div class="footer-logo">
+                            <img src="public/images/afandy-hero-logo.png" alt="AFANDY TRAVEL" class="footer-logo-img">
+                            <span class="footer-logo-text" data-translate="footer.company">AFANDY TRAVEL</span>
+                        </div>
+                        <p class="footer-description" data-translate="footer.description">Your trusted partner for visa and immigration services worldwide with authentic Middle Eastern hospitality.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">📘</a>
+                            <a href="#" class="social-link twitter">🐦</a>
+                            <a href="#" class="social-link instagram">📷</a>
+                            <a href="#" class="social-link linkedin">💼</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title" data-translate="footer.contact">Contact Info</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <span>info@afandytravel.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span>+971 4 123 4567</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>Dubai, United Arab Emirates</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <div class="footer-links">
+                            <a href="#services" class="footer-link" data-translate="nav.services">Services</a>
+                            <a href="#process" class="footer-link" data-translate="nav.process">Process</a>
+                            <a href="#contact" class="footer-link" data-translate="nav.contact">Contact</a>
+                            <a href="blog.html" class="footer-link" data-translate="nav.blog">Blog</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 <span data-translate="footer.company">AFANDY TRAVEL</span>. <span data-translate="footer.rights">All rights reserved.</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Floating Chat -->
+    <div class="floating-chat" id="floating-chat">
+        <div class="chat-options" id="chat-options">
+            <a href="https://wa.me/971412345678" target="_blank" class="chat-option whatsapp">
+                <span class="chat-icon">💬</span>
+                <span>WhatsApp</span>
+            </a>
+            <a href="https://t.me/afandytravel" target="_blank" class="chat-option telegram">
+                <span class="chat-icon">✈️</span>
+                <span>Telegram</span>
+            </a>
+        </div>
+        <button class="chat-toggle" onclick="toggleChat()">
+            <span class="chat-toggle-icon">💬</span>
+        </button>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+   
+</body>
+</html>
