@@ -6,7 +6,7 @@
 !index.html
 !blog.html
 !blog-post.html
-!/styles
-!/js
-!/css
-!/public
+!styles/
+!js/
+!css/
+!public/
