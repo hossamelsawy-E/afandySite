@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# Don't ignore these files:
+!.gitignore
+!index.html
+!blog.html
+!blog-post.html
+!styles/
+!assets/
+!js/
+!css/
+!public/
