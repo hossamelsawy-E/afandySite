@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - AFANDY TRAVEL</title>
+    <title>Blog - Open Visa Way</title>
     <meta name="description" content="Stay informed with the latest visa requirements, travel updates, and immigration news from AFANDY TRAVEL.">
     
     <!-- Fonts -->
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/blog.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script> 
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="public/images/afandy-hero-logo.png">
@@ -126,6 +127,7 @@
     </section>
 
     <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -136,10 +138,12 @@
                     </div>
                     <p class="footer-description" data-translate="footer.description">Your trusted partner for visa and immigration services worldwide with authentic Middle Eastern hospitality.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link facebook">📘</a>
-                        <a href="#" class="social-link twitter">🐦</a>
-                        <a href="#" class="social-link instagram">📷</a>
-                        <a href="#" class="social-link linkedin">💼</a>
+                        <a href="https://www.facebook.com/share/191uDzWuUX/?mibextid=qi2Omg"target="_blank" class="social-link facebook"><img src="public/icons/facebook.png" alt="Facebook"></a>
+                        <!-- <a href="https://twitter.com/afandytravel" target="_blank" class="social-link twitter"><img src="public/icons/twitter.png" alt="Twitter"></a> -->
+                        <a href="https://www.instagram.com/afandytravel?igsh=MWxlOXBoMGc0bjZsYg==" target="_blank" class="social-link instagram"><img src="public/icons/instagram.png" alt="Instagram"></a>
+                        <!-- <a href="#" class="social-link linkedin"><img src="public/icons/linkedin.png" alt="LinkedIn"></a> -->
+                        <a href="https://www.tiktok.com/@afandytravel?_t=ZN-8vwWq12WP2s&_r=1" target="_blank" class="social-link tiktok"><img src="public/icons/tiktok.png" alt="TikTok"></a>
+                        <a href="https://www.youtube.com/@AfandyTravel" target="_blank" class="social-link youtube"><img src="public/icons/youtube.png" alt="Youtube"></a>
                     </div>
                 </div>
 
@@ -147,16 +151,16 @@
                     <h3 class="footer-title" data-translate="footer.contact">Contact Info</h3>
                     <div class="contact-info">
                         <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <span>info@afandytravel.com</span>
+                            <span class="contact-icon social-link2"><img src="public/icons/gmail.png" alt="Gmail"></span>
+                            <span>info@openvisaway.com</span>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <span>+971 4 123 4567</span>
+                            <span class="contact-icon social-link2"><img src="public/icons/phone.png" alt="Phone"></span>
+                            <span>+20 109 266 8948</span>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <span>Dubai, United Arab Emirates</span>
+                            <span class="contact-icon social-link2"><img src="public/icons/location.png" alt="Location"></span>
+                            <span>Egypt, Alexandria</span>
                         </div>
                     </div>
                 </div>
@@ -164,34 +168,42 @@
                 <div class="footer-section">
                     <h3 class="footer-title">Quick Links</h3>
                     <div class="footer-links">
-                        <a href="index.html#services" class="footer-link" data-translate="nav.services">Services</a>
-                        <a href="index.html#process" class="footer-link" data-translate="nav.process">Process</a>
-                        <a href="index.html#contact" class="footer-link" data-translate="nav.contact">Contact</a>
+                        <a href="#services" class="footer-link" data-translate="nav.services">Services</a>
+                        <a href="#process" class="footer-link" data-translate="nav.process">Process</a>
+                        <a href="#contact" class="footer-link" data-translate="nav.contact">Contact</a>
                         <a href="blog.html" class="footer-link" data-translate="nav.blog">Blog</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 <span data-translate="footer.company">AFANDY TRAVEL</span>. <span data-translate="footer.rights">All rights reserved.</span></p>
+                <p>&copy; 2025 <span data-translate="footer.company">OpenVisaway</span>. <span data-translate="footer.rights">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
+    
 
     <!-- Floating Chat -->
     <div class="floating-chat" id="floating-chat">
         <div class="chat-options" id="chat-options">
-            <a href="https://wa.me/971412345678" target="_blank" class="chat-option whatsapp">
-                <span class="chat-icon">💬</span>
+            <a href="https://wa.me/+201092668948" target="_blank" class="chat-option whatsapp">
+                <span class="chat-icon social-link2"><img src="public/icons/whatsapp.png" alt="WhatsApp"></span>
                 <span>WhatsApp</span>
             </a>
-            <a href="https://t.me/afandytravel" target="_blank" class="chat-option telegram">
-                <span class="chat-icon">✈️</span>
+            <!-- <a href="https://t.me/+201092668948" target="_blank" class="chat-option telegram">
+                <span class="chat-icon social-link2"><img src="public/icons/telegram.png" alt="Telegram"></span>
                 <span>Telegram</span>
-            </a>
+            </a> -->
         </div>
         <button class="chat-toggle" onclick="toggleChat()">
-            <span class="chat-toggle-icon">💬</span>
+            <span class="chat-toggle-icon">
+            <dotlottie-wc
+            src="https://lottie.host/30b351be-1bfe-49a3-a98b-0d44f02590cd/DTYpB5KzH8.lottie"
+            style="width: 75px;height: 75px"
+            speed="1"
+            autoplay
+            loop
+            ></dotlottie-wc></span>
         </button>
     </div>
 
@@ -201,6 +213,7 @@
     <script src="js/blog-data.js"></script>
     <script src="js/blog.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
