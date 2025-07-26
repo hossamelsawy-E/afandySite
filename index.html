@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Visa Way - navigate your future abroad</title>
+
     <meta name="description" content="Professional visa and immigration services with 15+ years of experience. We make your travel dreams come true.">
-    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+     <!-- Material Icons for Card Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>  
@@ -21,7 +24,146 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="public/images/afandy-hero-logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
-  
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+      @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+      .shake-animation {
+          animation: shake 0.5s ease-in-out;
+      }
+      
+      @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .slide-down {
+          animation: slideDown 0.5s ease-out;
+      }
+      /* إضافة هذا للـ style section في HTML */
+      .destination-container {
+          transition: all 0.3s ease;
+      }
+
+      .destination-selected {
+          background-color: #f0f9ff;
+          border-color: #0ea5e9;
+      }
+
+      #destinationError {
+          animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* تحسين مظهر رسالة التنبيه */
+      .info-message {
+          border-left: 4px solid #3b82f6;
+          background: linear-gradient(90deg, #dbeafe 0%, #f8fafc 100%);
+      }
+        
+      .swiper {
+          overflow: hidden;
+          touch-action: pan-x;
+          -webkit-overflow-scrolling: touch;
+      }
+      
+      .swiper-wrapper {
+          touch-action: pan-x;
+          will-change: transform;
+      }
+      
+      .swiper-slide {
+          touch-action: pan-x;
+          user-select: none;
+      }
+      
+      /* تحسينات RTL */
+      [dir="rtl"] .mobile-list li {
+          flex-direction: row-reverse;
+      }
+      
+      [dir="rtl"] .mobile-price {
+          flex-direction: row-reverse;
+      }
+      
+      [dir="rtl"] .mobile-title {
+          text-align: right;
+      }
+      
+      /* تحسينات LTR */
+      [dir="ltr"] .mobile-list li {
+          flex-direction: row;
+      }
+      
+      [dir="ltr"] .mobile-price {
+          flex-direction: row;
+      }
+      
+      [dir="ltr"] .mobile-title {
+          text-align: left;
+      }
+      
+      .swiper-pagination {
+          position: static !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 16px 0 12px 0;
+      }
+      
+      .swiper-pagination-bullet {
+          width: 14px;
+          height: 14px;
+          margin: 0 8px !important;
+          background: rgba(255, 255, 255, 0.6);
+          opacity: 0.7;
+          transition: all 0.3s ease;
+      }
+      
+      .swiper-pagination-bullet-active {
+          opacity: 1;
+          transform: scale(1.4);
+          background: #ffffff;
+          box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+      }
+      
+      @media (max-width: 768px) {
+        .mobile-card {
+            width: calc(100vw - 32px) !important;
+            max-width: 380px !important;
+            margin: 8px auto !important;
+        }
+        
+        .mobile-title {
+            font-size: 1.125rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 12px !important;
+        }
+        
+        .mobile-button {
+            min-height: 48px;
+            border-radius: 12px !important;
+            font-weight: 600 !important;
+        }
+      }
+      
+      .enhanced-shadow {
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      }
+      
+      .enhanced-shadow:hover {
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+
 </head>
 <body class="scrollbar-right">
     <!-- Loading Screen -->
@@ -92,7 +234,7 @@
 
                     <!-- Controls -->
                     <div class="header-controls">
-                        <a class="language-toggle" onclick="toggleLanguage()" id="zur-flip">
+                        <a class="language-toggle lang-btn active" onclick="toggleLanguage()">
                             <span class="globe-icon">🌍</span>
                             <span id="language-text">العربية</span>
                         </a>
@@ -238,6 +380,677 @@
             </div>
         </section>
         
+        <!-- latest trips -->
+        <!-- class="mobile-section w-full max-w-7xl px-4 py-20 mx-auto rounded-2xl shadow-2xl bg-white/10 backdrop-blur-xl border border-white/20" -->
+        <section class="w-[85%] max-w-[85%] px-4 py-20 mx-auto">
+            <!-- <h2 class="unwan-raeesi2 text-3xl md:text-4xl text-center font-bold mb-8 md:mb-12  drop-shadow-lg ">Latest Trips</h2> -->
+            <!-- Header -->
+            <div class="section-header">
+                <h2 class="section-title">Latest Trips</h2>
+                <p class="section-subtitle">Discover the latest journeys and success stories from our visa clients worldwide</p>
+            </div>
+            <div class="swiper group relative" dir="rtl">
+              <div class="swiper-wrapper">
+                
+                <!-- Card 1 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://images.unsplash.com/photo-1587975844610-40f1ad10d07e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Luxor" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Luxor</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">beach_access</span>
+                          Cultura
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">shopping_basket</span>
+                          Shopping
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">schedule</span>
+                          7 Hours
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                          1–8 People
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€200</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€150</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">25% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Diving Courses
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Card 2 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://www.maldive365.it/wp-content/uploads/2022/09/Barriere-coralline-980x653.jpg" alt="Atollie Coralli" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Atollie Coralli</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                            Snorkeling
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">sailing</span>
+                            Mare
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                           Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                            1–8 People
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€90</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€75</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">16% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+        
+                <!-- Card 3 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://i0.wp.com/www.smile-hurghada.com/wp-content/uploads/2019/04/tiago-rosado-mN4BylzUvcI-unsplash-scaled.jpg?resize=600%2C450&ssl=1" alt="Mega Safari" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Mega Safari</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour  
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                            Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">beach_access</span>
+                            Beach Trips, Boat Trips
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                            Marsa Alam
+                          </li>
+                          
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                            1–8 People
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€90</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€76</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">15% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+        
+                <!-- Card 4 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://viaggiegitto.wordpress.com/wp-content/uploads/2012/02/quad1.jpg?w=640&h=480" alt="Motorata" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Motorata</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour  
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                            Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">beach_access</span>
+                            Beach Trips, Boat Trips
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                            Marsa Alam
+                          </li>
+                          
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                            1–8 People
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€60</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€46</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">23% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+        
+                <!-- Card 5 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://sunpyramidtours.com/storage/media/tours/sharm-el-luli-snorkeling-tour-start-from-99/y1KEkhOGCHd9P7mHjRiM9aTvAJsroO4E9ADTyeJy.webp" alt="Sharm El Luly" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Sharm El Luly</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                            Snorkeling
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                           Spiaggia
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                            Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                            1–8 People
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€60</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€45</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">25% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+        
+                <!-- Card 6 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://www.egypttourpackages.com/data1/images/Abu-Dabbab-Dugong-Snorkeling-Trip-from-Makadi/2.jpg" alt="Abu Dabbab" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Abu Dabbab</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                            Snorkeling
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                           Spiaggia
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                            Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                            1–8 People
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€55</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€45</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">18% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+        
+                <!-- Card 7 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://images.unsplash.com/photo-1562966317-7e6bdd2c2381?q=80&w=1584&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hamata" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Hamata</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                            Snorkeling
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                           Spiaggia
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                            Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">sailing</span>
+                            Mare
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€95</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€85</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">11% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+        
+                <!-- Card 8 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                    <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                      <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                        <img src="https://www.egyptsunmarine.com/storage/harmony10.jpg" alt="Elite Vip" class="w-full h-full object-cover">
+                      </div>
+                      <div class="px-6 py-5">
+                        <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Elite Vip</h3>
+                        <ul class="mobile-list space-y-2 mb-4">
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                            Tour
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                            Snorkeling
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-blue-400">sailing</span>
+                           Spiaggia
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                            Natura
+                          </li>
+                          <li class="flex items-center text-gray-600 text-sm">
+                            <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                            1–8 People
+                          </li>
+                        </ul>
+                        <hr class="my-3 border-gray-200">
+                        <div class="mobile-price flex items-center mb-3">
+                          <span class="text-sm text-red-400 line-through mr-3">€120</span>
+                          <span class="text-2xl font-bold text-gray-900 mr-3">€90</span>
+                          <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">25% Off</span>
+                        </div>
+                        <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                          <span class="material-icons text-base mr-2">emoji_people</span>
+                          Diving Courses
+                        </div> -->
+                        <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                          BOOK NOW
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Card 9 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://www.egyptsunmarine.com/storage/seascope%20new/PHOTO-2024-05-26-12-12-05.jpg" alt="Seascope" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Seascope</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">sailing</span>
+                          Mare
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">eco</span>
+                          Natura
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">schedule</span>
+                          7 Hours
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                          1–8 People
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€65</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€55</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">15% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Diving Courses
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 10 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://images.unsplash.com/photo-1633164006864-be2345665822?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nefertari" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Nefertari</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                          Snorkeling
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">sailing</span>
+                         Mare
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">shopping_basket</span>
+                          Shopping
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                          1–8 People
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€110</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€90</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">18% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Diving Courses
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 11 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/621266021.jpg?k=641264b200df969e5d8b644c8553aa9adf6a56d2fe7eeb7402c2399beeda4847&o=&hp=1" alt="Sataya" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Sataya</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">pool</span>
+                          Snorkeling
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">sailing</span>
+                         Mare
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                          Natura
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                          1–8 People
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€115</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€95</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">17% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Diving Courses
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 12 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://www.mts.gov.eg/wp-content/uploads/2023/07/Port-Ghalib-Resort-Exterior.jpeg" alt="Port Ghalib" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Port Ghalib</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">shopping_basket</span>
+                          Shopping
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                          Marsa Alam
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">schedule</span>
+                          7 Hours
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                          1–8 People
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€25</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€15</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">40% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Diving Courses
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 13 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_galleries/140310/900x600-1-50-a326cdc47cb143c2b69901d809e41430.jpg" alt="Shopping ad El Quseir" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Shopping ad El Quseir</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">shopping_basket</span>
+                          Shopping
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                          El Quseir
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                          Mare
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">beach_access</span>
+                          Cultura
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€50</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€30</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">40% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Shopping
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW 
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card 14 -->
+                <div class="swiper-slide mobile-slide flex justify-center py-6">
+                  <div class="mobile-card custom-card bg-white rounded-3xl enhanced-shadow w-[400px] max-w-full transition-all duration-500 hover:scale-[1.02]">
+                    <div class="card-image rounded-t-3xl overflow-hidden h-44">
+                      <img src="https://d3rr2gvhjw0wwy.cloudfront.net/uploads/activity_galleries/280861/2000x2000-0-70-353f6343ae39fa3a8ae74086127ec51f.jpg" alt="Shalateen" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-6 py-5">
+                      <h3 class="mobile-title text-xl font-bold text-gray-900 mb-3">Shalateen</h3>
+                      <ul class="mobile-list space-y-2 mb-4">
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-teal-500">tour</span>
+                          Tour
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-indigo-400">sailing</span>
+                          Spiaggia
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-blue-400">place</span>
+                          Shalateen
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-green-400">eco</span>
+                          Natura
+                        </li>
+                        <li class="flex items-center text-gray-600 text-sm">
+                          <span class="material-icons mr-3 text-lg text-pink-400">group</span>
+                          1–8 People
+                        </li>
+                      </ul>
+                      <hr class="my-3 border-gray-200">
+                      <div class="mobile-price flex items-center mb-3">
+                        <span class="text-sm text-red-400 line-through mr-3">€85</span>
+                        <span class="text-2xl font-bold text-gray-900 mr-3">€70</span>
+                        <span class="bg-gradient-to-r from-teal-500 to-teal-600 text-white text-xs font-bold px-3 py-1.5 rounded-full ml-auto shadow-lg">17% Off</span>
+                      </div>
+                      <!-- <div class="flex items-center text-gray-500 text-sm py-2 mb-2">
+                        <span class="material-icons text-base mr-2">emoji_people</span>
+                        Shopping
+                      </div> -->
+                      <button onclick="scrollToSection('contact')" class="mobile-button w-full bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white py-3 rounded-xl transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl active:scale-95">
+                        BOOK NOW
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Enhanced Pagination Dots -->
+              <div class="swiper-pagination pagination-color"></div>
+            </div>
+        </section>
+
         <!-- Process Section -->
         <section id="process" class="process">
             <div class="container">
@@ -285,65 +1098,337 @@
                 </div>
             </div>
         </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title" data-translate="contact.title">Get Started Today</h2>
-                    <p class="section-subtitle" data-translate="contact.subtitle">Contact us for a free consultation and let us help you with your visa needs</p>
+        <section id="contact">
+          <div class="container mx-auto px-4">
+            <!-- Form Section -->
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8 text-center">
+                    <h1 class="text-3xl font-bold mb-2">
+                        <i class="fas fa-plane-departure ml-2"></i>
+                        طلب التأشيرة السياحية
+                    </h1>
+                    <p class="text-blue-100">املأ البيانات التالية للحصول على الاستشارة المجانية</p>
                 </div>
+    
+                <!-- Form -->
+                <form id="visaForm" action="https://api.web3forms.com/submit" method="POST" class="p-8 space-y-6">
+                  <input type="hidden" name="access_key" value="bafd4af7-d91f-4597-8e26-40fdcbf381c8">
+                  <!-- Personal Information -->
+                  <div class="bg-gray-50 p-6 rounded-xl">
+                      <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                          <i class="fas fa-user text-blue-600 ml-2"></i>
+                          البيانات الشخصية
+                      </h2>
+                      
+                      <div class="grid md:grid-cols-2 gap-6">
+                          <div>
+                              <label class="block text-gray-700 font-medium mb-2">
+                                  <i class="fas fa-id-badge text-blue-500 ml-1"></i>
+                                  الاسم الكامل *
+                              </label>
+                              <input type="text" name="fullName" id="fullName" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" 
+                                    placeholder="أدخل اسمك الكامل">
+                              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
 
-                <div class="contact-form-container">
-                    <form class="contact-form" id="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name" data-translate="contact.name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="country" data-translate="contact.country">Country</label>
-                                <input type="text" id="country" name="country" required>
-                            </div>
+                          <div>
+                              <label class="block text-gray-700 font-medium mb-2">
+                                  <i class="fab fa-whatsapp text-green-500 ml-1"></i>
+                                  رقم الواتساب *
+                              </label>
+                              <input type="tel" name="whatsapp" id="whatsapp" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" 
+                                    placeholder="01xxxxxxxxx">
+                              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+
+                          <div>
+                              <label class="block text-gray-700 font-medium mb-2">
+                                  <i class="fas fa-phone text-blue-500 ml-1"></i>
+                                  الرقم الشخصي *
+                              </label>
+                              <input type="tel" name="personalPhone" id="personalPhone" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" 
+                                    placeholder="01xxxxxxxxx">
+                              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+
+                          <div>
+                              <label class="block text-gray-700 font-medium mb-2">
+                                  <i class="fas fa-briefcase text-purple-500 ml-1"></i>
+                                  المهنة *
+                              </label>
+                              <input type="text" name="profession" id="profession" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" 
+                                    placeholder="أدخل مهنتك">
+                              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Destination Selection -->
+                  <div class="bg-gray-50 p-6 rounded-xl">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                        <i class="fas fa-globe text-blue-600 ml-2"></i>
+                        اختيار الوجهة
+                    </h2>
+                    
+                    <!-- إضافة رسالة التنبيه -->
+                    <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                        <p class="text-blue-800 text-sm">
+                            <i class="fas fa-info-circle ml-1"></i>
+                            <strong>مطلوب:</strong> يجب اختيار وجهة واحدة على الاقل
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-passport text-indigo-500 ml-1"></i>
+                                المدن المتاحة للتأشيرة السياحية
+                            </label>
+                            <select name="visaCity" id="visaCities" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                                <option value="">   اختر المدينة للسياحة الخارجية </option>
+                                <option value="إسبانيا - إسبانيا">إسبانيا - إسبانيا</option>
+                                <option value="فرنسا - فرنسا">فرنسا - فرنسا</option>
+                                <option value="برلين - ألمانيا">برلين - ألمانيا</option>
+                                <option value="أثينا - اليونان">أثينا - اليونان</option>
+                                <option value="ميلانو - إيطاليا">ميلانو - إيطاليا</option>
+                                <option value="لشبونة - البرتغال">لشبونة - البرتغال</option>
+                                <option value="روتردام - هولندا">روتردام - هولندا</option>
+                                <option value="ديبريسين - المجر">ديبريسين - المجر</option>
+                                <option value="فيلنيوس - ليتوانيا">فيلنيوس - ليتوانيا</option>
+
+                            </select>
+                            <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone" data-translate="contact.phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="whatsapp" data-translate="contact.whatsapp">WhatsApp (Optional)</label>
-                                <input type="tel" id="whatsapp" name="whatsapp">
-                            </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">
+                                <i class="fas fa-map-marked-alt text-red-500 ml-1"></i>
+                                الوجهات السياحية داخل مصر
+                            </label>
+                            <select name="egyptDestination" id="egyptDestinations" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300">
+                                <option value="">اختر الوجهة (اختياري إذا اخترت مدينة خارجية)</option>
+                                <option value="الأقصر">الأقصر (Luxor)</option>
+                                <option value="جزر وشعاب مرجانية">جزر وشعاب مرجانية (Atolli e Coralli)</option>
+                                <option value="ميجا سفاري">ميجا سفاري (Mega Safari)</option>
+                                <option value="جولة بالموتوسيكلات">جولة بالموتوسيكلات (Motorata)</option>
+                                <option value="شرم اللولي">شرم اللولي (Sharm El Luly)</option>
+                                <option value="أبو دباب">أبو دباب (Abu Dabbab)</option>
+                                <option value="حماطة">حماطة (Hamata)</option>
+                                <option value="رحلة VIP فاخرة">رحلة VIP فاخرة (Elite Vip)</option>
+                                <option value="غواصة زجاجية">غواصة زجاجية (Seascope)</option>
+                                <option value="نفرتاري">نفرتاري (Nefertari)</option>
+                                <option value="بورت غالب">بورت غالب (Port Ghalib)</option>
+                                <option value="ساتايا">ساتايا (Sataya)</option>
+                                <option value="تسوق في القصير">تسوق في القصير (Shopping ad El Quseir)</option>
+                                <option value="شلاتين">شلاتين (Shalateen)</option>
+                            </select>
+                            <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
                         </div>
+                    </div>
+                    
+                    <!-- رسالة خطأ خاصة بالوجهات -->
+                    <div id="destinationError" class="text-red-500 text-sm mt-3 hidden">
+                        <i class="fas fa-exclamation-circle ml-1"></i>
+                        يجب اختيار وجهة واحدة على الأقل (إما مدينة خارجية أو وجهة داخل مصر)
+                    </div>
+                  </div>
 
-                        <div class="form-group">
-                            <label for="passport" data-translate="contact.passport">Upload Passport Copy</label>
-                            <div class="file-upload">
-                                <input type="file" id="passport" name="passport" accept=".pdf,.jpg,.jpeg,.png">
-                                <div class="file-upload-text">
-                                    <span class="upload-icon">📤</span>
-                                    <span>Click to upload or drag and drop</span>
-                                    <small>PDF, JPG, PNG up to 10MB</small>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="message" data-translate="contact.message">Message</label>
-                            <textarea id="message" name="message" rows="4" required placeholder="Tell us about your travel plans and visa requirements..."></textarea>
-                        </div>
+                  <!-- Financial Information -->
+                  <div class="bg-gray-50 p-6 rounded-xl">
+                      <h2 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center">
+                          <i class="fas fa-university text-green-600 ml-2"></i>
+                          المعلومات المالية والمستندات
+                      </h2>
 
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span data-translate="contact.submit">Submit Application</span>
-                            <span class="btn-arrow">→</span>
-                        </button>
-                    </form>
-                </div>
+                      <div class="space-y-6">
+                          <!-- Bank Account Balance -->
+                          <div class="bg-white p-4 rounded-lg border border-gray-200" id="hasBankAccount-container">
+                              <label class="block text-gray-700 font-medium mb-3">
+                                  <i class="fas fa-money-check-alt text-green-500 ml-1"></i>
+                                  هل لديك حساب بنكي؟ *
+                              </label>
+                              <div class="flex gap-4">
+                                  <label class="flex items-center">
+                                      <input type="radio" name="hasBankAccount" value="yes" required 
+                                            class="ml-2 text-green-500 focus:ring-green-500">
+                                      <span class="text-green-700">نعم</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="hasBankAccount" value="no" required 
+                                            class="ml-2 text-red-500 focus:ring-red-500">
+                                      <span class="text-red-700">لا</span>
+                                  </label>
+                              </div>
+                              <div class="radio-error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+
+                          <!-- Bank Activity -->
+                          <div class="bg-white p-4 rounded-lg border border-gray-200" id="bankActivity-container">
+                              <label class="block text-gray-700 font-medium mb-3">
+                                  <i class="fas fa-exchange-alt text-blue-500 ml-1"></i>
+                                  هل تم على الحساب البنكي سحب وإيداع خلال آخر 6 شهور؟ *
+                              </label>
+                              <div class="flex gap-4">
+                                  <label class="flex items-center">
+                                      <input type="radio" name="bankActivity" value="yes" required 
+                                            class="ml-2 text-green-500 focus:ring-green-500">
+                                      <span class="text-green-700">نعم</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="bankActivity" value="no" required 
+                                            class="ml-2 text-red-500 focus:ring-red-500">
+                                      <span class="text-red-700">لا</span>
+                                  </label>
+                              </div>
+                              <div class="radio-error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+
+                          <!-- Has Bank Account -->
+                          <div class="bg-white p-4 rounded-lg border border-gray-200" id="bankBalance-container">
+                              <label class="block text-gray-700 font-medium mb-3">
+                                  <i class="fas fa-piggy-bank text-pink-500 ml-1"></i>
+                                  هل لديك حساب بنكي لا يقل عن 150,000 جنيه؟ *
+                              </label>
+                              <div class="flex gap-4">
+                                  <label class="flex items-center">
+                                      <input type="radio" name="bankBalance" value="yes" required 
+                                            class="ml-2 text-green-500 focus:ring-green-500">
+                                      <span class="text-green-700">نعم</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="bankBalance" value="no" required 
+                                            class="ml-2 text-red-500 focus:ring-red-500">
+                                      <span class="text-red-700">لا</span>
+                                  </label>
+                              </div>
+                              <div class="radio-error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+
+                          <!-- HR Letter -->
+                          <div class="bg-white p-4 rounded-lg border border-gray-200" id="hrLetter-container">
+                              <label class="block text-gray-700 font-medium mb-3">
+                                  <i class="fas fa-file-contract text-purple-500 ml-1"></i>
+                                  هل لديك خطاب HR من مكان العمل (للموظفين)؟ *
+                              </label>
+                              <div class="flex gap-4">
+                                  <label class="flex items-center">
+                                      <input type="radio" name="hrLetter" value="yes" required 
+                                            class="ml-2 text-green-500 focus:ring-green-500">
+                                      <span class="text-green-700">نعم</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="hrLetter" value="no" required 
+                                            class="ml-2 text-red-500 focus:ring-red-500">
+                                      <span class="text-red-700">لا</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="hrLetter" value="not_applicable" required 
+                                            class="ml-2 text-gray-500 focus:ring-gray-500">
+                                      <span class="text-gray-700">لا ينطبق</span>
+                                  </label>
+                              </div>
+                              <div class="radio-error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+
+                          <!-- Commercial Registration -->
+                          <div class="bg-white p-4 rounded-lg border border-gray-200" id="commercialReg-container">
+                              <label class="block text-gray-700 font-medium mb-3">
+                                  <i class="fas fa-certificate text-orange-500 ml-1"></i>
+                                  هل يمكنك الحصول على سجل تجاري أو بطاقة ضريبية (في حالة عدم وجود HR)؟ *
+                              </label>
+                              <div class="flex gap-4">
+                                  <label class="flex items-center">
+                                      <input type="radio" name="commercialReg" value="yes" required 
+                                            class="ml-2 text-green-500 focus:ring-green-500">
+                                      <span class="text-green-700">نعم</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="commercialReg" value="no" required 
+                                            class="ml-2 text-red-500 focus:ring-red-500">
+                                      <span class="text-red-700">لا</span>
+                                  </label>
+                                  <label class="flex items-center">
+                                      <input type="radio" name="commercialReg" value="not_applicable" required 
+                                            class="ml-2 text-gray-500 focus:ring-gray-500">
+                                      <span class="text-gray-700">لا ينطبق</span>
+                                  </label>
+                              </div>
+                              <div class="radio-error-message text-red-500 text-sm mt-1 hidden"></div>
+                          </div>
+                      </div>
+
+                      <!-- Hidden fields for eligible submissions only -->
+                      <input type="hidden" name="eligibilityStatus" id="eligibilityStatus" value="">
+                      <input type="hidden" name="requestId" id="requestId" value="">
+                      <input type="hidden" name="applicationDate" id="applicationDate" value="">
+                  </div>
+
+                  <!-- Submit Button -->
+                  <div class="text-center">
+                      <button type="submit" id="submitBtn" 
+                              class="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                          <i class="fas fa-paper-plane ml-2"></i>
+                          إرسال الطلب
+                      </button>
+                  </div>
+              </form>
+          </div>
+
+          <!-- Success Message (for eligible applications) -->
+          <div id="successMessage" class="hidden max-w-4xl mx-auto mt-6 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg slide-down">
+              <div class="flex items-center">
+                  <i class="fas fa-check-circle text-green-500 ml-2"></i>
+                  <strong>تم إرسال طلبك بنجاح! 🎉</strong>
+              </div>
+              <p class="mt-2">سيتم مراجعة طلبك خلال 24 ساعة وستتلقى رد على الواتساب.</p>
+          </div>
+
+          <!-- Error Message (for non-eligible applications) -->
+            <div id="errorMessage" class="hidden max-w-4xl mx-auto mt-6 bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg slide-down">
+              <div class="flex items-center">
+                  <i class="fas fa-exclamation-triangle text-red-500 ml-2"></i>
+                  <strong>عذراً، طلبك غير مكتمل حالياً</strong>
+              </div>
+              <p class="mt-2 mb-4">للأسف، بعض المتطلبات المالية الأساسية غير متوفرة. لن يتم إرسال الطلب حتى تكتمل المتطلبات.</p>
+              
+              <div class="bg-white p-4 rounded-lg mt-4">
+                  <h3 class="font-semibold mb-3 text-gray-800">تواصل مع خدمة العملاء لمساعدتك:</h3>
+                  <div class="grid md:grid-cols-3 gap-4">
+                      <a href="https://wa.me/+201092668948" target="_blank" 
+                        class="flex items-center justify-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                          <i class="fab fa-whatsapp ml-2"></i>
+                          واتساب
+                      </a>
+                      <a href="https://t.me/openvisaway" target="_blank" 
+                        class="flex items-center justify-center bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                          <i class="fab fa-telegram ml-2"></i>
+                          تيليجرام
+                      </a>
+                      
+                      <a href="mailto:openvisaway@gmail.com" 
+                        class="flex items-center justify-center bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                          <i class="fas fa-envelope ml-2"></i>
+                          openvisaway@gmail.com
+                      </a>
+                  </div>
+                  <div class="mt-4 p-3 bg-blue-50 rounded-lg">
+                      <p class="text-sm text-blue-800">
+                          <strong>نحن هنا لمساعدتك!</strong> 
+                          تواصل معنا وسنوضح لك كيفية استكمال المتطلبات الناقصة لضمان قبول طلبك.
+                      </p>
+                      </div>
+                  </div>
             </div>
+          </div>
         </section>
-
         <!-- Testimonials Section -->
         <section id="testimonials" class="testimonials">
             <div class="w-full max-w-7xl mx-auto px-4 py-8 testimonial-slide-in" id="testimonialCarouselMainContainer">
@@ -415,7 +1500,7 @@
 
                     <article class="blog-card" data-animate="fade-in-up" data-delay="150">
                         <div class="blog-image">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop" alt="UK Study">
+                            <img src="https://images.unsplash.com/photo-1593135396867-b066b5e3a80f?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="UK Study">
                             <div class="blog-category">Education</div>
                         </div>
                         <div class="blog-content">
@@ -515,10 +1600,10 @@
                 <span class="chat-icon social-link2"><img src="public/icons/whatsapp.png" alt="WhatsApp"></span>
                 <span>WhatsApp</span>
             </a>
-            <!-- <a href="https://t.me/+201092668948" target="_blank" class="chat-option telegram">
+            <a href="https://t.me/openvisaway" target="_blank" class="chat-option telegram">
                 <span class="chat-icon social-link2"><img src="public/icons/telegram.png" alt="Telegram"></span>
                 <span>Telegram</span>
-            </a> -->
+            </a>
         </div>
         <button class="chat-toggle" onclick="toggleChat()">
             <span class="chat-toggle-icon">
@@ -534,9 +1619,48 @@
     <!-- Scripts -->
     <script src="js/translations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script> 
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
-   
+    <script src="js/webform-validation.js"></script>
+    <script>
+      // دالة لعرض التنبيه لأول مرة فقط
+      function showAlertOnce(message, key) {
+        if(!localStorage.getItem(key)) {
+          alert(message);
+          localStorage.setItem(key, 'shown');
+        }
+      }
+    
+      // منع كليك يمين مع التنبيه أول مرة فقط
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        showAlertOnce('هذه الخاصية مغلقة على هذا الموقع', 'right_click_alert');
+      });
+    
+      // منع اختصارات لوحة المفاتيح مع التنبيه أول مرة فقط
+      document.onkeydown = function(e) {
+        // منع F12
+        if(e.keyCode == 123) {
+          showAlertOnce('تم تعطيل أدوات المطور على هذا الموقع.', 'devtools_alert');
+          return false;
+        }
+        // منع Ctrl+Shift+I أو Ctrl+Shift+C أو Ctrl+Shift+J
+        if(e.ctrlKey && e.shiftKey && 
+          (e.keyCode == 'I'.charCodeAt(0) || 
+            e.keyCode == 'C'.charCodeAt(0) ||
+            e.keyCode == 'J'.charCodeAt(0))) {
+          showAlertOnce('تم تعطيل أدوات المطور على هذا الموقع.', 'devtools_alert');
+          return false;
+        }
+        // منع Ctrl+U
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+          showAlertOnce('عرض الكود المصدر معطل على هذا الموقع.', 'source_alert');
+          return false;
+        }
+      }
+    </script>
+    
 </body>
 </html>

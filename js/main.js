@@ -1148,7 +1148,276 @@ class AfandyTravelApp {
         window.addEventListener('scroll', requestTick);
     }
   }
+
+//   // Form validation and submission logic
+// document.getElementById('visaForm').addEventListener('submit', function(e) {
+//   e.preventDefault();
   
+//   // Get form data
+//   const formData = new FormData(this);
+//   const data = Object.fromEntries(formData);
+  
+//   // Add additional data from inputs
+//   data.fullName = document.getElementById('fullName').value;
+//   data.whatsapp = document.getElementById('whatsapp').value;
+//   data.personalPhone = document.getElementById('personalPhone').value;
+//   data.profession = document.getElementById('profession').value;
+//   data.visaCities = document.getElementById('visaCities').value;
+//   data.egyptDestinations = document.getElementById('egyptDestinations').value;
+  
+//   // Validate eligibility
+//   const isEligible = checkEligibility(data);
+  
+//   if (isEligible) {
+//       // Send data to backend
+//       sendToBackend(data);
+//       showSuccessMessage();
+//   } else {
+//       showErrorMessage();
+//   }
+// });
+
+// function checkEligibility(data) {
+//   // Check all required conditions
+//   const hasEnoughBalance = data.bankBalance === 'yes';
+//   const hasBankActivity = data.bankActivity === 'yes';
+//   const hasBankAccount = data.hasBankAccount === 'yes';
+  
+//   // Check HR letter or commercial registration
+//   const hasHR = data.hrLetter === 'yes';
+//   const hasCommercialReg = data.commercialReg === 'yes';
+//   const hrNotApplicable = data.hrLetter === 'not_applicable';
+//   const commercialNotApplicable = data.commercialReg === 'not_applicable';
+  
+//   // Logic for HR/Commercial Registration
+//   let hasWorkProof = false;
+//   if (hasHR || (hrNotApplicable && hasCommercialReg) || 
+//       (data.hrLetter === 'no' && hasCommercialReg)) {
+//       hasWorkProof = true;
+//   }
+  
+//   // Overall eligibility
+//   return hasEnoughBalance && hasBankActivity && hasBankAccount && hasWorkProof;
+// }
+
+// function sendToBackend(data) {
+//   // Prepare email content
+//   const emailContent = {
+//       to: 'openvisaway@gmail.com', // تم تحديث الإيميل
+//       subject: 'طلب تأشيرة سياحية جديد - ' + data.fullName,
+//       body: formatEmailBody(data)
+//   };
+  
+//   // Send via fetch API
+//   fetch('/send-application', {
+//       method: 'POST',
+//       headers: {
+//           'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(emailContent)
+//   })
+//   .then(response => response.json())
+//   .then(result => {
+//       console.log('Success:', result);
+//   })
+//   .catch(error => {
+//       console.error('Error:', error);
+//   });
+// }
+
+// function formatEmailBody(data) {
+//   return `
+// طلب تأشيرة سياحية جديد
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// 👤 البيانات الشخصية:
+// الاسم الكامل: ${data.fullName}
+// رقم الواتساب: ${data.whatsapp}
+// الرقم الشخصي: ${data.personalPhone}
+// المهنة: ${data.profession}
+
+// 🌍 معلومات السفر:
+// المدينة المطلوبة للتأشيرة: ${getDestinationName(data.visaCities)}
+// الوجهة داخل مصر: ${data.egyptDestinations ? getEgyptDestinationName(data.egyptDestinations) : 'غير محدد'}
+
+// 💰 الحالة المالية:
+// الحساب البنكي (+150 ألف جنيه): ${data.bankBalance === 'yes' ? '✅ متوفر' : '❌ غير متوفر'}
+// نشاط بنكي آخر 6 شهور: ${data.bankActivity === 'yes' ? '✅ متوفر' : '❌ غير متوفر'}
+// لديه حساب بنكي: ${data.hasBankAccount === 'yes' ? '✅ نعم' : '❌ لا'}
+
+// 📄 المستندات:
+// خطاب HR: ${data.hrLetter === 'yes' ? '✅ متوفر' : data.hrLetter === 'no' ? '❌ غير متوفر' : '➖ لا ينطبق'}
+// سجل تجاري/بطاقة ضريبية: ${data.commercialReg === 'yes' ? '✅ متوفر' : data.commercialReg === 'no' ? '❌ غير متوفر' : '➖ لا ينطبق'}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// 📅 تاريخ الطلب: ${new Date().toLocaleString('ar-EG')}
+// 🆔 رقم الطلب: ${generateRequestId()}
+
+// للمتابعة مع العميل:
+// 📱 واتساب: ${data.whatsapp}
+// ☎️ هاتف: ${data.personalPhone}
+//   `;
+// }
+
+// // Helper functions
+// function getDestinationName(value) {
+//   const destinations = {
+//       'dubai': 'دبي - الإمارات',
+//       'istanbul': 'اسطنبول - تركيا',
+//       'paris': 'باريس - فرنسا',
+//       'london': 'لندن - إنجلترا',
+//       'rome': 'روما - إيطاليا',
+//       'madrid': 'مدريد - إسبانيا',
+//       'amsterdam': 'أمستردام - هولندا',
+//       'vienna': 'فيينا - النمسا',
+//       'prague': 'براغ - التشيك',
+//       'budapest': 'بودابست - المجر'
+//   };
+//   return destinations[value] || value;
+// }
+
+// function getEgyptDestinationName(value) {
+//   const destinations = {
+//       'cairo': 'القاهرة والجيزة',
+//       'alexandria': 'الإسكندرية',
+//       'luxor': 'الأقصر',
+//       'aswan': 'أسوان',
+//       'hurghada': 'الغردقة',
+//       'sharm': 'شرم الشيخ',
+//       'dahab': 'دهب',
+//       'marsa_alam': 'مرسى علم',
+//       'siwa': 'واحة سيوة',
+//       'white_desert': 'الصحراء البيضاء'
+//   };
+//   return destinations[value] || value;
+// }
+
+// function generateRequestId() {
+//   const timestamp = Date.now();
+//   const random = Math.floor(Math.random() * 1000);
+//   return `REQ-${timestamp}-${random}`;
+// }
+
+
+
+// function showSuccessMessage() {
+//   document.getElementById('successMessage').classList.remove('hidden');
+//   document.getElementById('errorMessage').classList.add('hidden');
+//   document.getElementById('visaForm').style.display = 'none';
+  
+//   // Scroll to message
+//   document.getElementById('successMessage').scrollIntoView({
+//       behavior: 'smooth'
+//   });
+// }
+
+// function showErrorMessage() {
+//   document.getElementById('errorMessage').classList.remove('hidden');
+//   document.getElementById('successMessage').classList.add('hidden');
+  
+//   // Scroll to message
+//   document.getElementById('errorMessage').scrollIntoView({
+//       behavior: 'smooth'
+//   });
+// }
+
+// Phone number formatting
+// document.getElementById('whatsapp').addEventListener('input', formatPhoneNumber);
+// document.getElementById('personalPhone').addEventListener('input', formatPhoneNumber);
+
+// function formatPhoneNumber(e) {
+//   let value = e.target.value.replace(/\D/g, '');
+//   if (value.length > 11) {
+//       value = value.slice(0, 11);
+//   }
+//   e.target.value = value;
+// }
+
+// Form animations and interactions
+document.addEventListener('DOMContentLoaded', function() {
+  // Add smooth animations to form sections
+  const sections = document.querySelectorAll('.bg-gray-50');
+  sections.forEach((section, index) => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.2}s`;
+  });
+  
+  // Add CSS animation
+  const style = document.createElement('style');
+  style.textContent = `
+      @keyframes fadeInUp {
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+      
+      .form-input:focus {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+      }
+      
+      .hover-lift:hover {
+          transform: translateY(-2px);
+      }
+  `;
+  document.head.appendChild(style);
+});
+
+// Add loading state to submit button
+document.getElementById('visaForm').addEventListener('submit', function() {
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin ml-2"></i>جاري المعالجة...';
+  submitBtn.disabled = true;
+  
+  // Re-enable after processing
+  setTimeout(() => {
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane ml-2"></i>إرسال الطلب';
+      submitBtn.disabled = false;
+  }, 2000);
+});
+
+  
+  // latest trip 
+  // new Swiper('.swiper', {
+  //   slidesPerView: 1,
+  //   spaceBetween: 24,
+  //   loop: true,
+  //   centeredSlides: false,
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable: true,
+  //   },
+  //   breakpoints: {
+  //     640: { slidesPerView: 1 },
+  //     768: { slidesPerView: 2 },
+  //     1024: { slidesPerView: 4 },
+  //   },
+  //   speed: 400,
+  //   effect: 'slide',
+  //   grabCursor: true,
+  //   simulateTouch: true,
+  //   touchRatio: 1.5,
+  //   touchAngle: 45,
+  //   shortSwipes: true,
+  //   longSwipes: true,
+  //   longSwipesMs: 200,
+  //   longSwipesRatio: 0.3,
+  //   threshold: 5,
+  //   resistance: true,
+  //   resistanceRatio: 0.85,
+  //   followFinger: true,
+  //   allowTouchMove: true,
+  //   touchMoveStopPropagation: false,
+  //   touchStartPreventDefault: false,
+  //   touchStartForcePreventDefault: false,
+  //   touchReleaseOnEdges: false,
+  // });
+
+
   // تشغيل الدوال عند تحميل الصفحة
   window.addEventListener('load', () => {
     muraqabatTamarrur();

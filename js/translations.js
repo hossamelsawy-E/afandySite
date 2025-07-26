@@ -208,6 +208,9 @@ function toggleLanguage() {
   // Update body class for scrollbar positioning
   document.body.className = "scrollbar-right"
 
+  // Update swiper direction
+  updateSwiperDirection(currentLanguage)
+
   // Update language toggle text
   const languageText = document.getElementById("language-text")
   if (languageText) {
@@ -238,6 +241,86 @@ function initializeLanguage() {
     }
   }
   updateTranslations()
+  
+  // Initialize swiper after language setup
+  if (typeof initSwiper === 'function') {
+    setTimeout(() => initSwiper(), 100)
+  }
+}
+
+// Function to update swiper direction based on language
+function updateSwiperDirection(language) {
+  const swiperElement = document.querySelector('.swiper')
+  
+  if (swiperElement) {
+    // Update swiper container direction
+    if (language === 'ar') {
+      swiperElement.setAttribute('dir', 'rtl')
+    } else {
+      swiperElement.setAttribute('dir', 'ltr')
+    }
+    
+    // Destroy and reinitialize swiper if it exists
+    if (window.swiper) {
+      window.swiper.destroy(true, true)
+      
+      // Small delay to ensure DOM updates
+      setTimeout(() => {
+        if (typeof initSwiper === 'function') {
+          initSwiper()
+        }
+      }, 100)
+    }
+  }
+}
+
+// Function to initialize swiper (should be defined in your main script)
+function initSwiper() {
+  if (window.swiper) {
+    window.swiper.destroy(true, true)
+  }
+  
+  window.swiper = new Swiper('.swiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: true,
+    rtl: false, // Always false to maintain natural swipe behavior
+    
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    
+    breakpoints: {
+      640: { 
+        slidesPerView: 1,
+        spaceBetween: 16,
+        centeredSlides: true
+      },
+      768: { 
+        slidesPerView: 2,
+        spaceBetween: 20,
+        centeredSlides: false
+      },
+      1024: { 
+        slidesPerView: 4,
+        spaceBetween: 24,
+        centeredSlides: false
+      },
+    },
+    // ENHANCED MOBILE TOUCH SETTINGS
+     // Optimized touch settings for mobile
+     speed: 300,
+     grabCursor: true,
+     touchRatio: 1,
+     threshold: 5,
+     allowTouchMove: true,
+     simulateTouch: true,
+     touchStartPreventDefault: false,
+     preventClicks: false,
+     preventClicksPropagation: false,
+  })
 }
 
 // Loading steps for different languages
@@ -276,3 +359,5 @@ window.updateTranslations = updateTranslations
 window.initializeLanguage = initializeLanguage
 window.loadingSteps = loadingSteps
 window.updateLoadingSteps = updateLoadingSteps
+window.updateSwiperDirection = updateSwiperDirection
+window.initSwiper = initSwiper

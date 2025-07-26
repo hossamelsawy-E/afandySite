@@ -209,7 +209,7 @@ The UK offers world-class education with excellent career prospects for internat
       ar: "التعليم",
     },
     categorySlug: "education",
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=250&fit=crop",
+    image: "https://images.unsplash.com/photo-1593135396867-b066b5e3a80f?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: "8 min",
     tags: ["uk", "education", "student-visa", "universities"],
     author: {
@@ -810,7 +810,7 @@ The US continues to refine its immigration system to balance security concerns w
       ar: "الهجرة",
     },
     categorySlug: "immigration",
-    image: "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=400&h=250&fit=crop",
+    image: "https://images.unsplash.com/photo-1518544866330-4e716499f800?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: "9 min",
     tags: ["usa", "immigration", "policy", "visa"],
     author: {

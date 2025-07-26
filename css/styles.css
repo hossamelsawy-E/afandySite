@@ -582,6 +582,7 @@ a{
   gap: 2rem;
 }
 
+
 @media (min-width: 768px) {
   .nav-desktop {
     display: flex;
@@ -907,7 +908,17 @@ a{
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.unwan-raeesi2{
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 25px;
+  color: #2a4365;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .unwan-raeesi.zahir {
   transform: translateY(0);
   opacity: 1;
@@ -3258,6 +3269,109 @@ section {
     max-width: 20rem;
   }
 }
+
+/* <!-- latest trips --> */
+/* Enhanced pagination dots */
+/* .swiper-pagination {
+position: static !important;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 16px 0 12px 0;
+}
+
+.swiper-pagination-bullet {
+width: 14px;
+height: 14px;
+margin: 0 8px !important;
+background: rgba(73, 253, 97, 0.5);
+opacity: 0.7;
+transition: all 0.3s ease;
+border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+opacity: 1;
+transform: scale(1.4);
+background: #3b9637;
+box-shadow: 0 0 12px rgba(54, 201, 74, 0.8);
+}
+  
+.pagination-color{
+  color:#25d366;
+} */
+/* Mobile-first responsive design */
+/* @media (max-width: 768px) {
+  .mobile-section {
+    padding: 16px 8px !important;
+  }
+
+  .mobile-card {
+    width: calc(100vw - 32px) !important;
+    max-width: 380px !important;
+    margin: 8px auto !important;
+    min-height: auto;
+  }
+
+  .mobile-slide {
+    padding: 12px 0 !important;
+  }
+
+  .mobile-title {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .mobile-list {
+    margin-bottom: 16px !important;
+  }
+
+  .mobile-list li {
+    padding: 3px 0 !important;
+    font-size: 0.875rem !important;
+  }
+
+  .mobile-price {
+    margin-bottom: 12px !important;
+  }
+
+  .mobile-button {
+    padding: 14px 16px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    margin-top: 16px !important;
+    min-height: 48px;
+  }
+
+  .swiper {
+    overflow: visible !important;
+    padding-bottom: 20px !important;
+  }
+
+  .card-image {
+    height: 180px !important;
+  }
+} */
+    
+/* Enhanced touch feedback */
+/* .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.custom-card {
+  touch-action: pan-y;
+  user-select: none;
+} */
+
+/* Better shadow and elevation */
+/* .enhanced-shadow {
+  box-shadow: 0 8px 32px rgba(126, 112, 112, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.enhanced-shadow:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+} */
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
